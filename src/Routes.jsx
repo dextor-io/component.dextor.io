@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 import Layout from "./Layout";
 import ErrorScreen from "./ErrorScreen";
+import PrimaryButton from "./Components/PrimaryButton";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
         path: "",
         element: <h1>Home Page</h1>,
       },
+      {
+        path: "primary-button",
+        element: <PrimaryButton />
+      }
     ],
   },
 ]);
