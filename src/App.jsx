@@ -1,9 +1,18 @@
-import React, { StrictMode, Suspense } from "react";
-import { RouterProvider } from "react-router-dom";
-import { createRoot } from "react-dom/client";
+import React, {StrictMode, Suspense} from "react";
+import {RouterProvider} from "react-router-dom";
+import {createRoot} from "react-dom/client";
 import router from "./Routes";
 
-const app = createRoot(document.getElementById("root"));
+// Get the root element safely, with a null check
+const rootElement = document.getElementById("root");
+
+if (!rootElement) {
+  throw new Error(
+    "Root element not found. Make sure the root div is in the HTML file."
+  );
+}
+
+const app = createRoot(rootElement);
 
 const App = () => {
   return (
@@ -15,7 +24,7 @@ const App = () => {
 
 app.render(
   <StrictMode>
-    <Suspense fallback={"Test"}>
+    <Suspense fallback={""}>
       <App />
     </Suspense>
   </StrictMode>
